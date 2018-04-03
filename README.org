@@ -8,8 +8,13 @@ good companion for others along the same process.
 2. cython
 3. setuptools
 4. make
+5. build-essential
 
 * Usage
 Just use 'make' in the root of this repo to build and run the samples. Open the
 respective directories to know the code and its usage. In order to know all
  targets currently available, just type 'make' in the commandline.
+
+* Disclaimer!
+Many example codes are shamelessly copied (and a bit modified) from cython's
+official page here: http://docs.cython.org/en/latest/src/tutorial/external.html

@@ -7,6 +7,8 @@ default:
 	@echo " . helloworld - simplest hello world program"
 	@echo " . integrate  - integration code"
 	@echo " . primes     - evaluating primes"
+	@echo " . atoi       - showing how to use C library functions"
+	@echo " . dynamic-linking - showing how to link to external C libs"
 
 .PHONY: helloworld
 helloworld:
@@ -29,4 +31,20 @@ primes:
 	$(BUILD) && \
 	python -m timeit 'import cy; cy.primes(1000)' && \
 	python -m timeit 'import py; py.primes(1000)' && \
+	$(CLEAN)
+
+.PHONY: atoi
+atoi:
+	cd $@ && \
+	$(BUILD) && \
+	python -m timeit 'import cy; cy.str2int("123456")' && \
+	python -m timeit 'import py; py.str2int("123456")' && \
+	$(CLEAN)
+
+.PHONY: dynamic-linking
+dynamic-linking:
+	cd $@ && \
+	$(BUILD) && \
+	python -m timeit 'import cy; cy.mypow(3.1415, 1.45)' && \
+	python -m timeit 'import py; py.mypow(3.1415, 1.45)' && \
 	$(CLEAN)
