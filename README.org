@@ -1,0 +1,15 @@
+* Introduction
+Simple repository containing examples of using cython to improve perf.
+I used these examples to ramp-up on cython. Thus it could hopefully serve as a
+good companion for others along the same process.
+
+* Pre-reqs
+1. python
+2. cython
+3. setuptools
+4. make
+
+* Usage
+Just use 'make' in the root of this repo to build and run the samples. Open the
+respective directories to know the code and its usage. In order to know all
+ targets currently available, just type 'make' in the commandline.
