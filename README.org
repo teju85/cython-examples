@@ -15,6 +15,7 @@ Just use 'make' in the root of this repo to build and run the samples. Open the
 respective directories to know the code and its usage. In order to know all
  targets currently available, just type 'make' in the commandline.
 
-* Disclaimer!
+* License
 Many example codes are shamelessly copied (and a bit modified) from cython's
-official page here: http://docs.cython.org/en/latest/src/tutorial/external.html
+official page here: http://docs.cython.org/en/latest/src/tutorial/external.html.
+So, the license/copyright of this repo also follows the above.
