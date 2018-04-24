@@ -4,11 +4,12 @@ CLEAN  := rm -rf *.c *.dll *.so *.pyc *.pyo *.html build/
 
 default:
 	@echo "make what? Available targets are:"
-	@echo " . helloworld - simplest hello world program"
-	@echo " . integrate  - integration code"
-	@echo " . primes     - evaluating primes"
-	@echo " . atoi       - showing how to use C library functions"
+	@echo " . helloworld      - simplest hello world program"
+	@echo " . integrate       - integration code"
+	@echo " . primes          - evaluating primes"
+	@echo " . atoi            - showing how to use C library functions"
 	@echo " . dynamic-linking - showing how to link to external C libs"
+	@echo " . numpy-matvec    - working with numpy using an example of matvec product"
 
 .PHONY: helloworld
 helloworld:
@@ -47,4 +48,12 @@ dynamic-linking:
 	$(BUILD) && \
 	python -m timeit 'import cy; cy.mypow(3.1415, 1.45)' && \
 	python -m timeit 'import py; py.mypow(3.1415, 1.45)' && \
+	$(CLEAN)
+
+.PHONY: numpy-matvec
+numpy-matvec:
+	cd $@ && \
+	$(BUILD) && \
+	python -m timeit 'import py; import numpy as np; a = np.random.rand(100, 20).astype(np.float32); b = np.random.rand(20).astype(np.float32); py.matvec(a, b)' && \
+	python -m timeit 'import cy; import numpy as np; a = np.random.rand(100, 20).astype(np.float32); b = np.random.rand(20).astype(np.float32); cy.matvec(a, b)' && \
 	$(CLEAN)
